@@ -1,6 +1,7 @@
 import WebSocket, { WebSocketServer } from 'ws';
 
-const wss = new WebSocketServer({ port: 8080 });
+const PORT = process.env.PORT == undefined ? 4000 : parseInt(process.env.PORT)
+const wss = new WebSocketServer({ port: PORT });
 
 wss.on('connection', function connection(ws: WebSocket) {
     ws.on('error', console.error);
